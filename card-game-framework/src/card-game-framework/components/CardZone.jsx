@@ -3,6 +3,7 @@ import Card from "./Card.jsx"
 import { BoardContext } from "./BoardContext.js"
 import { HEARTHSTONE_CONFIG_TEMPLATE } from "../example/HearthstoneBoard.jsx"
 import { useLocalStorageState } from "../utils.js"
+import { useLocalZoneState } from "../card-game-framework.js"
 
 export default function CardZone({ name, Test, config, className, style }) {
 
@@ -11,14 +12,11 @@ export default function CardZone({ name, Test, config, className, style }) {
     
     const zoneConfig = config.zones[zoneIndex]
     const initialState = zoneConfig.initialState
-    const cardStates = initialState.cardStates
-    
-    
-    const [ state, setState ] = boardContext.zoneStates[name]
 
+    const [ state, setState ] = useLocalZoneState(name, initialState)
+    
     console.log({zoneConfig})
     console.log({initialState})
-    console.log({cardStates})
     console.log({state})
 
 
@@ -26,7 +24,7 @@ export default function CardZone({ name, Test, config, className, style }) {
         { state.cardStates.map(cardState => (
             <Card
                 cardState={cardState}
-                onClick={() => zoneConfig.defaultCardClickHandler(cardState, boardContext.cardGameAPI)} 
+                onClick={() => zoneConfig.defaultCardClickHandler(cardState)} 
                 CardRendererComponent={zoneConfig.cardRendererComponent}
             />
         )) }

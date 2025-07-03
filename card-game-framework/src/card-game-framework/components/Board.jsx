@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BoardContext } from "./BoardContext";
 import { useLocalStorageState } from "../utils";
+import { useLocalGetSetZoneState } from "../card-game-framework";
 
 function createZoneStates({ zones }) {
     const localStorageStatesForZoneByName = {}
@@ -24,21 +25,8 @@ function createZoneStates({ zones }) {
 
 export default function Board({ config, children }) {
 
-    const { zoneStates } = createZoneStates(config)   // Persistent between sessions
-
-    const cardGameAPI = {
-        addCardToZone: function(cardState, zoneName) {
-            const [zoneState, setZoneState] = zoneStates[zoneName]
-            const newZoneState = zoneState
-            newZoneState.cardStates.push(cardState)
-            setZoneState(newZoneState)
-        }
-    }
-
     const boardContext = {
-        config,
-        zoneStates,
-        cardGameAPI
+        config
     }
 
     // Children will be CardZones, Decks or Hands

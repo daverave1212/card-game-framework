@@ -1,4 +1,4 @@
-import { ZoneTypes } from "../card-game-framework.js"
+import { ZoneTypes, addNewCardToZone } from "../card-game-framework.js"
 import Board from "../components/Board.jsx"
 import CardZone from "../components/CardZone.jsx"
 import { HearthstoneCard } from "./HearthstoneCard.jsx"
@@ -39,10 +39,9 @@ export const HEARTHSTONE_CONFIG_TEMPLATE = {
                     }
                 ]
             },
-            defaultCardClickHandler: function(cardState, api) {
-                api.addCardToZone({
-                    name: "New Card"
-                }, "My Board")
+            defaultCardClickHandler: function(cardState) {
+                console.log(`OK< CLIKED ON KARD`)
+                addNewCardToZone({...cardState}, "My Board")
             }
         },
         {
