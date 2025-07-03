@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Nav from './components-standalone/Nav/Nav'
 import SideMenu from './components-standalone/SideMenu/SideMenu'
+import HearthstoneBoard from './card-game-framework/example/HearthstoneBoard.jsx'
+
 
 export default function App() {
 
@@ -16,6 +18,9 @@ export default function App() {
         { name: "About", href: "#" },
         { name: "Play", href: "#" }
       ]} isBurgerOpen={isBurgerOpen} setIsBurgerOpen={setIsBurgerOpen}/>
+
+      <HearthstoneBoard/>
+
     </div>
   )
 }

@@ -1,7 +1,7 @@
 
 
-export default function Card({ cardDto, CardRendererComponent }) {
-    return <div>
-        <CardRendererComponent cardDto={cardDto}></CardRendererComponent>
+export default function Card({ cardState, CardRendererComponent, onClick }) {
+    return <div onClick={onClick}>
+        <CardRendererComponent cardState={cardState}></CardRendererComponent>
     </div>
 }

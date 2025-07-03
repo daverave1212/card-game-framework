@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export function getLocalStorageJSON(keyName) {
     const value = localStorage.getItem(keyName)
