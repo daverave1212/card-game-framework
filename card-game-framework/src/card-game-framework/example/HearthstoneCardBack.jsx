@@ -1,5 +1,5 @@
-export function HearthstoneCardBack({ cardDto }) {
+export function HearthstoneCardBack({ cardState, style }) {
     return (
-        <div style={{width: '300px', height: '550px', backgroundColor: 'blue', borderRadius: '10px', padding: '2rem'}}></div>
+        <div style={{width: '200px', height: '300px', backgroundColor: 'blue', borderRadius: '10px', padding: '2rem', ...style}}></div>
     )
 }
